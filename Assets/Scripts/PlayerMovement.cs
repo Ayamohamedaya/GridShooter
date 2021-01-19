@@ -19,6 +19,12 @@ public class PlayerMovement : MonoBehaviour
         float x = Input.GetAxis("Horizontal");
         float z = Input.GetAxis("Vertical");
         move= (z * Vector3.forward + x * Vector3.right).normalized;
+        if(transform.position.y<0)
+        {
+            Instantiate(playerParticle, transform.position, transform.rotation);
+
+            Destroy(gameObject);
+        }
        // move= (z * Vector3.up + x * Vector3.up).normalized;
     }
 
@@ -32,7 +38,7 @@ public class PlayerMovement : MonoBehaviour
     }
     private void OnCollisionEnter(Collision collision)
     {
-        if(collision.collider.CompareTag("enemy"))
+        if(collision.collider.CompareTag("enemy") )
         {
             Instantiate(playerParticle, transform.position, transform.rotation);
 
@@ -40,4 +46,5 @@ public class PlayerMovement : MonoBehaviour
 
         }
     }
+
 }

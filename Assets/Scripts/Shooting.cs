@@ -30,7 +30,7 @@ public class Shooting : MonoBehaviour
     void Update()
     {
         Vector3 bulletDir = GetBulletDirection();
-        if(Input.GetButtonDown("Fire1"))
+        if(Input.GetButtonDown("Fire2"))
         {
             if(projectile)
             {
@@ -40,7 +40,7 @@ public class Shooting : MonoBehaviour
                 projSpawn.GetComponent<CustomBullet>().shoot(useImpulse,bulletDir);
             }
         } 
-        if(Input.GetButtonDown("Fire2"))
+        if(Input.GetButtonDown("Fire1"))
         {
             if(bullet)
             {
